@@ -12,7 +12,6 @@
         body { font-family: 'Inter', sans-serif; background-color: #f5f5f7; }
         .glassmorphism { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); }
         .apple-shadow { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
-        /* Hide scrollbar for carousel but keep functionality */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .hidden-tab { display: none; }
@@ -22,39 +21,18 @@
 
     <div class="glassmorphism z-20 px-4 py-3 border-b border-gray-200">
         <div id="notif-carousel" class="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth pb-1">
-            
             <div class="snap-start min-w-[280px] bg-gradient-to-r from-red-50 to-white border-l-4 border-red-500 rounded-xl p-3 apple-shadow flex-shrink-0 flex items-center gap-3 cursor-pointer">
                 <div class="bg-red-100 text-red-600 rounded-full w-8 h-8 flex items-center justify-center"><i class="fa-solid fa-user-clock text-xs"></i></div>
-                <div>
-                    <h4 class="text-sm font-bold text-gray-800">Patient Overdue!</h4>
-                    <p class="text-[10px] text-gray-600">UIC: SHC-A7B9X2 (ART) missed due date.</p>
-                </div>
+                <div><h4 class="text-sm font-bold text-gray-800">Patient Overdue!</h4><p class="text-[10px] text-gray-600">UIC: SHC-A7B9X2 (ART) missed due date.</p></div>
             </div>
-
             <div class="snap-start min-w-[280px] bg-gradient-to-r from-yellow-50 to-white border-l-4 border-yellow-400 rounded-xl p-3 apple-shadow flex-shrink-0 flex items-center gap-3 cursor-pointer">
                 <div class="bg-yellow-100 text-yellow-600 rounded-full w-8 h-8 flex items-center justify-center"><i class="fa-solid fa-bell text-xs"></i></div>
-                <div>
-                    <h4 class="text-sm font-bold text-gray-800">Patient Near Due</h4>
-                    <p class="text-[10px] text-gray-600">UIC: SHC-X9M2L1 (PrEP) - 3 days left.</p>
-                </div>
+                <div><h4 class="text-sm font-bold text-gray-800">Patient Near Due</h4><p class="text-[10px] text-gray-600">UIC: SHC-X9M2L1 (PrEP) - 3 days left.</p></div>
             </div>
-
             <div class="snap-start min-w-[280px] bg-gradient-to-r from-orange-50 to-white border-l-4 border-orange-500 rounded-xl p-3 apple-shadow flex-shrink-0 flex items-center gap-3 cursor-pointer">
                 <div class="bg-orange-100 text-orange-600 rounded-full w-8 h-8 flex items-center justify-center"><i class="fa-solid fa-box-open text-xs"></i></div>
-                <div>
-                    <h4 class="text-sm font-bold text-gray-800">Low Stock Warning</h4>
-                    <p class="text-[10px] text-gray-600">Tenofovir (Mylan) drops below 20 boxes.</p>
-                </div>
+                <div><h4 class="text-sm font-bold text-gray-800">Low Stock Warning</h4><p class="text-[10px] text-gray-600">Tenofovir (Mylan) drops below 20 boxes.</p></div>
             </div>
-
-            <div class="snap-start min-w-[280px] bg-gradient-to-r from-purple-50 to-white border-l-4 border-purple-500 rounded-xl p-3 apple-shadow flex-shrink-0 flex items-center gap-3 cursor-pointer">
-                <div class="bg-purple-100 text-purple-600 rounded-full w-8 h-8 flex items-center justify-center"><i class="fa-solid fa-calendar-xmark text-xs"></i></div>
-                <div>
-                    <h4 class="text-sm font-bold text-gray-800">Near Expiry Alert</h4>
-                    <p class="text-[10px] text-gray-600">Syphilis Meds (Lot 8A) expires in 30 days.</p>
-                </div>
-            </div>
-
         </div>
     </div>
 
@@ -69,15 +47,10 @@
                     <div class="w-1/2"><label class="block text-xs font-medium text-gray-500 mb-1">Sex</label><select class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"><option>Male</option><option>Female</option></select></div>
                 </div>
                 <div><label class="block text-xs font-medium text-gray-500 mb-1">Address</label><input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"></div>
-                
                 <div class="grid grid-cols-2 gap-4">
                     <div><label class="block text-xs font-medium text-gray-500 mb-1">UIC Patient Code</label><input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"></div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500 mb-1">Transfer Status</label>
-                        <select class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"><option>Active / New</option><option>Transfer In</option><option>Transferred Out</option></select>
-                    </div>
+                    <div><label class="block text-xs font-medium text-gray-500 mb-1">Transfer Status</label><select class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"><option>Active / New</option><option>Transfer In</option><option>Transferred Out</option></select></div>
                 </div>
-
                 <div>
                     <label class="block text-xs font-medium text-gray-500 mb-2">Category</label>
                     <div class="flex flex-wrap gap-2 text-xs">
@@ -87,7 +60,6 @@
                         <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full cursor-pointer">PWID</span>
                     </div>
                 </div>
-                
                 <hr class="my-4 border-gray-100">
                 <label class="block text-xs font-medium text-gray-500 mb-2">Services Offered</label>
                 <div class="grid grid-cols-2 gap-2 text-xs font-medium">
@@ -96,10 +68,7 @@
                     <button type="button" class="bg-gray-50 border border-gray-200 rounded-lg py-2 hover:bg-gray-100">Syphilis Treatment</button>
                     <button type="button" class="bg-gray-50 border border-gray-200 rounded-lg py-2 hover:bg-gray-100">Gonorrhea Treatment</button>
                 </div>
-                
-                <button type="button" class="w-full bg-blue-600 text-white rounded-xl py-3 mt-4 font-semibold hover:bg-blue-700 shadow-md">
-                    Enroll Patient & Generate QR
-                </button>
+                <button type="button" class="w-full bg-blue-600 text-white rounded-xl py-3 mt-4 font-semibold hover:bg-blue-700 shadow-md">Enroll Patient & Generate QR</button>
             </form>
         </div>
 
@@ -116,7 +85,6 @@
             </div>
 
             <div id="patients-view" class="flex-1 overflow-y-auto pb-24 space-y-3">
-                
                 <div class="bg-white rounded-2xl apple-shadow border border-gray-100 overflow-hidden transition-all duration-300">
                     
                     <div class="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-50" onclick="toggleExpand('patient-card-1')">
@@ -134,7 +102,6 @@
                     </div>
 
                     <div id="patient-card-1" class="hidden border-t border-gray-100 bg-gray-50 p-5">
-                        
                         <div class="flex justify-between items-start mb-4">
                             <div>
                                 <h4 class="font-bold text-gray-800">Juan Dela Cruz</h4>
@@ -146,7 +113,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-2 gap-4 mb-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                             <div class="bg-white p-3 rounded-xl border border-gray-200 text-sm">
                                 <h5 class="font-bold text-gray-700 mb-2 border-b pb-1 text-xs uppercase tracking-wide">DOH E-Forms / Files</h5>
                                 <label class="flex items-center gap-2 text-xs"><input type="checkbox" checked class="rounded"> Informed Consent Filled</label>
@@ -154,16 +121,38 @@
                                 <label class="flex items-center gap-2 text-xs mt-1"><input type="checkbox" class="rounded"> Form BC (Care Report)</label>
                                 <label class="flex items-center gap-2 text-xs mt-1"><input type="checkbox" class="rounded"> Parent Consent (If Minor)</label>
                             </div>
-                            <div class="bg-white p-3 rounded-xl border border-gray-200 text-sm">
-                                <h5 class="font-bold text-gray-700 mb-2 border-b pb-1 text-xs uppercase tracking-wide">Lab & Baseline Clearances</h5>
-                                <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-xs">
-                                    <label class="flex items-center gap-2"><input type="checkbox" class="rounded"> rHIVda Confirmatory</label>
-                                    <label class="flex items-center gap-2"><input type="checkbox" class="rounded"> Baseline CD4</label>
-                                    <label class="flex items-center gap-2"><input type="checkbox" class="rounded"> Sputum/X-Ray</label>
-                                    <label class="flex items-center gap-2"><input type="checkbox" class="rounded"> Stool Exam</label>
-                                    <label class="flex items-center gap-2"><input type="checkbox" class="rounded"> Syphilis (RPR)</label>
-                                    <label class="flex items-center gap-2"><input type="checkbox" class="rounded"> CBC / LFT</label>
-                                    <label class="flex items-center gap-2"><input type="checkbox" class="rounded"> CMV Prescription</label>
+                            
+                            <div class="bg-white p-3 rounded-xl border border-gray-200 text-sm col-span-1 md:col-span-2 lg:col-span-1">
+                                <h5 class="font-bold text-gray-700 mb-2 border-b pb-1 text-xs uppercase tracking-wide flex justify-between">
+                                    <span>Lab Clearances</span>
+                                    <span class="text-[9px] text-gray-400 font-normal">Result & Date</span>
+                                </h5>
+                                <div class="space-y-2">
+                                    <div class="flex items-center gap-2 text-xs">
+                                        <label class="flex items-center gap-2 w-2/5 font-medium"><input type="checkbox" class="rounded"> GeneXpert VL</label>
+                                        <input type="text" placeholder="Result" class="w-1.5/5 border border-gray-200 rounded px-2 py-1 outline-none focus:border-blue-400">
+                                        <input type="date" class="w-1.5/5 border border-gray-200 rounded px-2 py-1 outline-none text-[10px] focus:border-blue-400">
+                                    </div>
+                                    <div class="flex items-center gap-2 text-xs">
+                                        <label class="flex items-center gap-2 w-2/5 font-medium"><input type="checkbox" class="rounded"> rHIVda Confirm.</label>
+                                        <input type="text" placeholder="Result" class="w-1.5/5 border border-gray-200 rounded px-2 py-1 outline-none focus:border-blue-400">
+                                        <input type="date" class="w-1.5/5 border border-gray-200 rounded px-2 py-1 outline-none text-[10px] focus:border-blue-400">
+                                    </div>
+                                    <div class="flex items-center gap-2 text-xs">
+                                        <label class="flex items-center gap-2 w-2/5 font-medium"><input type="checkbox" class="rounded"> Baseline CD4</label>
+                                        <input type="text" placeholder="Result" class="w-1.5/5 border border-gray-200 rounded px-2 py-1 outline-none focus:border-blue-400">
+                                        <input type="date" class="w-1.5/5 border border-gray-200 rounded px-2 py-1 outline-none text-[10px] focus:border-blue-400">
+                                    </div>
+                                    <div class="flex items-center gap-2 text-xs">
+                                        <label class="flex items-center gap-2 w-2/5 font-medium"><input type="checkbox" class="rounded"> Syphilis (RPR)</label>
+                                        <input type="text" placeholder="Result" class="w-1.5/5 border border-gray-200 rounded px-2 py-1 outline-none focus:border-blue-400">
+                                        <input type="date" class="w-1.5/5 border border-gray-200 rounded px-2 py-1 outline-none text-[10px] focus:border-blue-400">
+                                    </div>
+                                    <div class="flex items-center gap-2 text-xs">
+                                        <label class="flex items-center gap-2 w-2/5 font-medium"><input type="checkbox" class="rounded"> CBC / LFT</label>
+                                        <input type="text" placeholder="Result" class="w-1.5/5 border border-gray-200 rounded px-2 py-1 outline-none focus:border-blue-400">
+                                        <input type="date" class="w-1.5/5 border border-gray-200 rounded px-2 py-1 outline-none text-[10px] focus:border-blue-400">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -176,139 +165,187 @@
                                     <p class="text-xs font-bold text-gray-800">Oct 15, 2023 - Next Due: <span class="text-red-500">Nov 14, 2023</span></p>
                                     <p class="text-[11px] text-gray-600">Given: 30 pcs Tenofovir (ART) | Dispensed by: Nurse Joy</p>
                                 </div>
-                                <div class="relative opacity-60">
-                                    <div class="absolute -left-[21px] top-1 w-3 h-3 bg-gray-400 rounded-full border-2 border-white"></div>
-                                    <p class="text-xs font-bold text-gray-800">Sept 15, 2023 - Complete</p>
-                                    <p class="text-[11px] text-gray-600">Given: 30 pcs Tenofovir (ART), Hepa B Vaccine | Dispensed by: Dr. Reyes</p>
-                                </div>
                             </div>
                         </div>
 
-                        <div class="p-4 bg-blue-50 border border-blue-100 rounded-xl">
-                            <h4 class="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-syringe text-blue-600"></i> Scan-to-Dispense Refill</h4>
-                            <div class="grid grid-cols-3 gap-3">
-                                <div><label class="block text-[10px] font-medium text-gray-600 uppercase">Given By</label><input type="text" placeholder="Staff Name" class="w-full bg-white border border-gray-200 rounded-lg px-2 py-1.5 text-xs outline-none"></div>
-                                <div><label class="block text-[10px] font-medium text-gray-600 uppercase">Quantity (pcs)</label><input type="number" class="w-full bg-white border border-gray-200 rounded-lg px-2 py-1.5 text-xs outline-none"></div>
-                                <div><label class="block text-[10px] font-medium text-gray-600 uppercase">Other Services</label><input type="text" placeholder="Condoms, etc." class="w-full bg-white border border-gray-200 rounded-lg px-2 py-1.5 text-xs outline-none"></div>
+                        <div class="p-4 bg-blue-50 border border-blue-100 rounded-xl flex justify-between items-center">
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-800 flex items-center gap-2"><i class="fa-solid fa-syringe text-blue-600"></i> Dispense Medication</h4>
+                                <p class="text-[10px] text-gray-600 mt-1">Next due date auto-computes (1 pc = 1 day).</p>
                             </div>
-                            <button class="w-full mt-3 bg-gray-900 text-white rounded-lg py-2 text-sm font-semibold hover:bg-gray-800 flex justify-center items-center gap-2 transition">
-                                <i class="fa-solid fa-barcode"></i> Scan Meds to Save & Auto-Deduct
+                            <button onclick="openScanner('dispense')" class="bg-gray-900 text-white rounded-lg px-4 py-2 text-sm font-semibold hover:bg-gray-800 transition shadow-sm flex items-center gap-2">
+                                <i class="fa-solid fa-barcode"></i> Scan Meds
                             </button>
                         </div>
 
                     </div>
                 </div>
-
             </div>
 
             <div id="inventory-view" class="hidden-tab flex-1 overflow-y-auto pb-24">
                 <div class="bg-white rounded-3xl apple-shadow p-6 border border-gray-100">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-xl font-bold text-gray-900">Inventory Management</h2>
-                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold" onclick="document.getElementById('addSupplyModal').classList.remove('hidden')">+ Add Supply</button>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700" onclick="document.getElementById('addSupplyModal').classList.remove('hidden')">+ Add New Supply</button>
                     </div>
                     
                     <table class="w-full text-left text-sm">
                         <thead class="bg-gray-50 text-gray-500 font-medium border-b border-gray-200">
-                            <tr><th class="py-3 px-4">Thumb</th><th class="py-3 px-4">Supply & Brand</th><th class="py-3 px-4">Lot / Expiry</th><th class="py-3 px-4">Stock Qty</th><th class="py-3 px-4">Action</th></tr>
+                            <tr>
+                                <th class="py-3 px-4">Image</th>
+                                <th class="py-3 px-4">Supply & Brand</th>
+                                <th class="py-3 px-4">Lot / Expiry</th>
+                                <th class="py-3 px-4">Stock Qty</th>
+                                <th class="py-3 px-4 text-center">Action</th>
+                            </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-100">
-                            <tr>
-                                <td class="py-3 px-4"><div class="w-8 h-8 bg-gray-200 rounded flex items-center justify-center text-xs">💊</div></td>
-                                <td class="py-3 px-4"><p class="font-bold">Tenofovir (TDF)</p><p class="text-xs text-gray-500">Mylan</p></td>
-                                <td class="py-3 px-4"><p>Lot: 99B2</p><p class="text-xs text-gray-500">Exp: 12/2027</p></td>
-                                <td class="py-3 px-4"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-orange-500"></span> 18 boxes</span></td>
-                                <td class="py-3 px-4 text-blue-600 cursor-pointer"><i class="fa-solid fa-pen-to-square"></i></td>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-3 px-4"><div class="w-10 h-10 bg-blue-100 text-blue-500 rounded flex items-center justify-center text-lg">💊</div></td>
+                                <td class="py-3 px-4"><p class="font-bold text-gray-800">Tenofovir (TDF)</p><p class="text-xs text-gray-500">Mylan</p></td>
+                                <td class="py-3 px-4"><p class="font-medium">Lot: 99B2</p><p class="text-[10px] text-gray-500">Exp: 12/2027</p></td>
+                                <td class="py-3 px-4"><span class="flex items-center gap-2 font-semibold"><span class="w-2 h-2 rounded-full bg-orange-500"></span> 18 boxes</span></td>
+                                <td class="py-3 px-4">
+                                    <div class="flex justify-center gap-4 text-gray-400">
+                                        <button class="hover:text-blue-600 transition" title="Edit Item Details"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="hover:text-green-600 transition" title="Add New Batch (Scan new QR/Lot)" onclick="document.getElementById('addBatchModal').classList.remove('hidden')"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-
         </div>
     </div>
 
-    <div id="addSupplyModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+    <div id="dispenseDetailsModal" class="hidden fixed inset-0 bg-black/50 z-[70] flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 w-full max-w-sm apple-shadow">
+            <h3 class="text-lg font-bold mb-1 text-gray-800">Medication Scanned!</h3>
+            <p class="text-xs text-gray-500 mb-4 border-b pb-3">Tenofovir (TDF) - Mylan (Lot: 99B2)</p>
+            
+            <div class="space-y-3">
+                <div><label class="block text-xs font-medium text-gray-600 mb-1">Dispensed By / Given By</label><input type="text" placeholder="Dr. or Nurse Name..." class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm outline-none focus:border-blue-400"></div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-600 mb-1">Quantity (pcs)</label>
+                    <input type="number" placeholder="e.g. 30" class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm outline-none focus:border-blue-400">
+                    <p class="text-[9px] text-blue-500 mt-1">*System will automatically add this number of days to the next due date.</p>
+                </div>
+                <div><label class="block text-xs font-medium text-gray-600 mb-1">Other Services</label><input type="text" placeholder="Counseling, condoms given..." class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm outline-none focus:border-blue-400"></div>
+            </div>
+            
+            <div class="mt-6 flex justify-end gap-2">
+                <button class="px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 text-sm" onclick="document.getElementById('dispenseDetailsModal').classList.add('hidden')">Cancel</button>
+                <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm shadow-sm" onclick="document.getElementById('dispenseDetailsModal').classList.add('hidden'); alert('Saved! Next due date updated & Inventory deducted.');">Save & Compute</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="addSupplyModal" class="hidden fixed inset-0 bg-black/50 z-[70] flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-6 w-full max-w-md apple-shadow">
             <h3 class="text-lg font-bold mb-4 border-b pb-2">Add New Supply</h3>
             <div class="grid grid-cols-2 gap-3 text-sm">
                 <div class="col-span-2"><label class="block text-xs font-medium text-gray-600">Supply Name</label><input type="text" class="w-full border border-gray-200 rounded-lg px-3 py-2 outline-none"></div>
                 <div><label class="block text-xs font-medium text-gray-600">Brand</label><input type="text" class="w-full border border-gray-200 rounded-lg px-3 py-2 outline-none"></div>
-                <div><label class="block text-xs font-medium text-gray-600">Quantity & Unit</label><input type="text" placeholder="e.g. 100 pcs" class="w-full border border-gray-200 rounded-lg px-3 py-2 outline-none"></div>
+                <div><label class="block text-xs font-medium text-gray-600">Quantity</label><input type="number" placeholder="e.g. 100" class="w-full border border-gray-200 rounded-lg px-3 py-2 outline-none"></div>
                 <div><label class="block text-xs font-medium text-gray-600">Lot Number</label><input type="text" class="w-full border border-gray-200 rounded-lg px-3 py-2 outline-none"></div>
                 <div><label class="block text-xs font-medium text-gray-600">Expiry Date</label><input type="date" class="w-full border border-gray-200 rounded-lg px-3 py-2 outline-none"></div>
-                <div class="col-span-2"><label class="block text-xs font-medium text-gray-600">Scan Barcode / QR to Auto-fill</label>
-                    <button class="w-full bg-gray-100 border border-gray-200 rounded-lg py-2 text-gray-600 hover:bg-gray-200 transition"><i class="fa-solid fa-camera mr-2"></i> Open Scanner</button>
+                <div class="col-span-2">
+                    <button class="w-full bg-gray-100 border border-gray-200 rounded-lg py-2 text-gray-600 hover:bg-gray-200 transition" onclick="openScanner('inventory')"><i class="fa-solid fa-camera mr-2"></i> Scan Barcode to link</button>
                 </div>
             </div>
             <div class="mt-6 flex justify-end gap-2">
-                <button class="px-4 py-2 text-gray-500 hover:bg-gray-100 rounded-lg transition" onclick="document.getElementById('addSupplyModal').classList.add('hidden')">Cancel</button>
-                <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Save Inventory</button>
+                <button class="px-4 py-2 text-gray-500 hover:bg-gray-100 rounded-lg" onclick="document.getElementById('addSupplyModal').classList.add('hidden')">Cancel</button>
+                <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Save Item</button>
             </div>
         </div>
     </div>
 
-    <div id="qrScannerModal" class="hidden fixed inset-0 bg-black/80 z-[60] flex flex-col items-center justify-center p-4">
+    <div id="addBatchModal" class="hidden fixed inset-0 bg-black/50 z-[70] flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 w-full max-w-sm apple-shadow">
+            <h3 class="text-lg font-bold mb-1 text-gray-800">Add Batch / Restock</h3>
+            <p class="text-xs text-gray-500 mb-4 border-b pb-3">Tenofovir (TDF) - Mylan</p>
+            <div class="space-y-3 text-sm">
+                <div><label class="block text-xs font-medium text-gray-600">New Quantity (added to master)</label><input type="number" class="w-full border border-gray-200 rounded-lg px-3 py-2 outline-none"></div>
+                <div><label class="block text-xs font-medium text-gray-600">New Lot Number</label><input type="text" class="w-full border border-gray-200 rounded-lg px-3 py-2 outline-none"></div>
+                <div><label class="block text-xs font-medium text-gray-600">New Expiry Date</label><input type="date" class="w-full border border-gray-200 rounded-lg px-3 py-2 outline-none"></div>
+                <button class="w-full bg-gray-100 border border-gray-200 rounded-lg py-2 text-gray-600 hover:bg-gray-200 transition text-xs mt-2" onclick="openScanner('inventory')"><i class="fa-solid fa-camera mr-2"></i> Scan New QR/Barcode</button>
+            </div>
+            <div class="mt-6 flex justify-end gap-2">
+                <button class="px-4 py-2 text-gray-500 hover:bg-gray-100 rounded-lg text-sm" onclick="document.getElementById('addBatchModal').classList.add('hidden')">Cancel</button>
+                <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 text-sm">Save Batch</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="qrScannerModal" class="hidden fixed inset-0 bg-black/90 z-[80] flex flex-col items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-4 w-full max-w-sm apple-shadow relative">
             <button onclick="closeScanner()" class="absolute top-4 right-4 text-gray-500 text-xl z-10"><i class="fa-solid fa-xmark"></i></button>
             <h3 class="text-center font-bold text-gray-800 mb-2">Scan QR / Barcode</h3>
             <div id="reader" class="w-full bg-black rounded-xl overflow-hidden min-h-[300px]"></div>
-            <p class="text-xs text-center text-gray-500 mt-2">Point camera at patient's QR code or medicine barcode.</p>
+            <p id="scanner-instruction" class="text-xs text-center text-gray-500 mt-2">Point camera at QR code...</p>
         </div>
     </div>
 
     <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 glassmorphism apple-shadow rounded-full px-6 py-3 flex gap-8 items-center z-50">
-        <button class="text-gray-400 hover:text-blue-600 transition flex flex-col items-center gap-1"><i class="fa-solid fa-house text-lg"></i><span class="text-[10px] font-medium">Home</span></button>
-        <button onclick="openScanner()" class="bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center apple-shadow hover:bg-blue-700 transition transform -translate-y-4"><i class="fa-solid fa-qrcode text-2xl"></i></button>
+        <button class="text-gray-400 hover:text-blue-600 transition flex flex-col items-center gap-1" onclick="switchView('patients')"><i class="fa-solid fa-house text-lg"></i><span class="text-[10px] font-medium">Home</span></button>
+        <button onclick="openScanner('global')" class="bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center apple-shadow hover:bg-blue-700 transition transform -translate-y-4"><i class="fa-solid fa-qrcode text-2xl"></i></button>
         <button class="text-gray-400 hover:text-blue-600 transition flex flex-col items-center gap-1" onclick="switchView('inventory')"><i class="fa-solid fa-boxes-stacked text-lg"></i><span class="text-[10px] font-medium">Stock</span></button>
     </div>
 
     <script>
-        // Switch between Patient and Inventory Views
         function switchView(view) {
             document.getElementById('patients-view').style.display = view === 'patients' ? 'block' : 'none';
             document.getElementById('inventory-view').style.display = view === 'inventory' ? 'block' : 'none';
         }
 
-        // Toggle Expandable Patient Card
         function toggleExpand(id) {
             const el = document.getElementById(id);
-            if (el.classList.contains('hidden')) {
-                el.classList.remove('hidden');
-            } else {
-                el.classList.add('hidden');
-            }
+            el.classList.toggle('hidden');
         }
 
-        // Auto-Scroll Notification Carousel
+        // Notification Carousel logic
         const carousel = document.getElementById('notif-carousel');
         let scrollAmount = 0;
         setInterval(() => {
             if(carousel) {
-                scrollAmount += 300; // Scroll by one card width
-                if (scrollAmount >= carousel.scrollWidth - carousel.clientWidth) {
-                    scrollAmount = 0; // Reset to start
-                }
+                scrollAmount += 300;
+                if (scrollAmount >= carousel.scrollWidth - carousel.clientWidth) scrollAmount = 0;
                 carousel.scrollTo({ top: 0, left: scrollAmount, behavior: 'smooth' });
             }
-        }, 5000); // Flashes/Slides every 5 seconds
+        }, 5000);
 
-        // QR Scanner Logic Skeleton
+        // QR Scanner Logic
         let html5QrcodeScanner;
-        function openScanner() {
+        let currentScanContext = '';
+
+        function openScanner(context) {
+            currentScanContext = context;
             document.getElementById('qrScannerModal').classList.remove('hidden');
+            document.getElementById('scanner-instruction').innerText = context === 'dispense' ? 'Scan Medicine Barcode to Dispense' : 'Point camera at QR or Barcode';
+            
             html5QrcodeScanner = new Html5QrcodeScanner("reader", { fps: 10, qrbox: {width: 250, height: 250} }, false);
             html5QrcodeScanner.render(onScanSuccess, onScanFailure);
         }
+
         function closeScanner() {
             document.getElementById('qrScannerModal').classList.add('hidden');
-            if(html5QrcodeScanner) { html5QrcodeScanner.clear(); }
+            if(html5QrcodeScanner) html5QrcodeScanner.clear();
         }
+
         function onScanSuccess(decodedText, decodedResult) {
-            alert("Scanned: " + decodedText);
             closeScanner();
+            if (currentScanContext === 'dispense') {
+                // Wait a tiny bit for scanner modal to close smoothly, then open details modal
+                setTimeout(() => {
+                    document.getElementById('dispenseDetailsModal').classList.remove('hidden');
+                }, 300);
+            } else {
+                alert("Scanned Code: " + decodedText);
+            }
         }
-        function onScanFailure(error) {}
+
+        function onScanFailure(error) { /* handled silently */ }
     </script>
 </body>
 </html>
