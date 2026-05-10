@@ -14,13 +14,12 @@
         .apple-shadow { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .hidden-tab { display: none; }
+        .hidden-tab { display: none !important; }
     </style>
 </head>
 <body class="h-screen w-screen text-gray-800 overflow-hidden bg-[#f5f5f7]">
 
     <div id="landing-page" class="h-full w-full flex flex-col items-center justify-center p-8 absolute inset-0 z-50 bg-gradient-to-br from-[#f5f5f7] to-[#e5e5ea]">
-        
         <div class="mb-12 flex flex-col items-center">
             <div class="w-20 h-20 bg-blue-600 rounded-3xl apple-shadow flex items-center justify-center text-white mb-6 transform rotate-3">
                 <i class="fa-solid fa-briefcase-medical text-4xl transform -rotate-3"></i>
@@ -30,27 +29,27 @@
         </div>
 
         <div class="flex flex-col md:flex-row gap-8 w-full max-w-6xl h-[50vh] md:h-[45vh]">
-            
-            <button onclick="enterApp('patients')" class="flex-1 glassmorphism bg-white/60 rounded-[40px] apple-shadow flex flex-col items-center justify-center gap-6 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group border-2 border-transparent hover:border-blue-100">
-                <div class="w-32 h-32 rounded-[28px] bg-blue-50 flex items-center justify-center text-blue-600 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 apple-shadow">
+            <button onclick="enterApp('patients')" class="flex-1 glassmorphism bg-white/60 rounded-[40px] apple-shadow flex flex-col items-center justify-center gap-6 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group border-2 border-transparent hover:border-blue-200 overflow-hidden relative">
+                <div class="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent z-0"></div>
+                <div class="w-32 h-32 rounded-[28px] bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white group-hover:scale-110 transition-all duration-300 apple-shadow z-10">
                     <i class="fa-solid fa-users-viewfinder text-6xl"></i>
                 </div>
-                <div class="text-center">
+                <div class="text-center z-10">
                     <h2 class="text-3xl font-bold text-gray-800 mb-2">Patient Management</h2>
                     <p class="text-sm text-gray-500 px-8">Manage patient records, enrollments, lab clearances, and track daily treatment refilling.</p>
                 </div>
             </button>
 
-            <button onclick="enterApp('inventory')" class="flex-1 glassmorphism bg-white/60 rounded-[40px] apple-shadow flex flex-col items-center justify-center gap-6 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group border-2 border-transparent hover:border-orange-100">
-                <div class="w-32 h-32 rounded-[28px] bg-orange-50 flex items-center justify-center text-orange-600 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300 apple-shadow">
+            <button onclick="enterApp('inventory')" class="flex-1 glassmorphism bg-white/60 rounded-[40px] apple-shadow flex flex-col items-center justify-center gap-6 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group border-2 border-transparent hover:border-orange-200 overflow-hidden relative">
+                <div class="absolute inset-0 bg-gradient-to-b from-orange-50/50 to-transparent z-0"></div>
+                <div class="w-32 h-32 rounded-[28px] bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center text-white group-hover:scale-110 transition-all duration-300 apple-shadow z-10">
                     <i class="fa-solid fa-boxes-stacked text-6xl"></i>
                 </div>
-                <div class="text-center">
+                <div class="text-center z-10">
                     <h2 class="text-3xl font-bold text-gray-800 mb-2">Stock Inventory</h2>
                     <p class="text-sm text-gray-500 px-8">Monitor medical supplies, add new batches, and automatically track deducted stock quantities.</p>
                 </div>
             </button>
-
         </div>
     </div>
 
@@ -75,49 +74,86 @@
 
         <div class="flex flex-1 overflow-hidden p-4 gap-4">
             
-            <div class="w-1/3 bg-white rounded-3xl apple-shadow p-6 overflow-y-auto hidden md:block">
-                <h2 class="text-xl font-semibold mb-4 text-gray-900">Patient Registration</h2>
-                <form class="space-y-4">
-                    <div><label class="block text-xs font-medium text-gray-500 mb-1">Full Name</label><input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"></div>
-                    <div class="flex gap-4">
-                        <div class="w-1/2"><label class="block text-xs font-medium text-gray-500 mb-1">Birthday</label><input type="date" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"></div>
-                        <div class="w-1/2"><label class="block text-xs font-medium text-gray-500 mb-1">Sex</label><select class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"><option>Male</option><option>Female</option></select></div>
+            <div class="w-1/3 bg-white rounded-3xl apple-shadow overflow-hidden hidden md:flex flex-col relative">
+                
+                <div id="left-patient-form" class="flex flex-col h-full">
+                    <div class="h-32 bg-gradient-to-r from-blue-600 to-cyan-500 flex items-center justify-center relative overflow-hidden">
+                        <i class="fa-solid fa-hospital-user text-white opacity-20 text-7xl absolute -right-4 -bottom-4"></i>
+                        <h2 class="text-2xl font-bold text-white z-10 drop-shadow-md"><i class="fa-solid fa-user-plus mr-2"></i>New Patient</h2>
                     </div>
-                    <div><label class="block text-xs font-medium text-gray-500 mb-1">Address</label><input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"></div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div><label class="block text-xs font-medium text-gray-500 mb-1">UIC Patient Code</label><input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"></div>
-                        <div><label class="block text-xs font-medium text-gray-500 mb-1">Transfer Status</label><select class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"><option>Active / New</option><option>Transfer In</option><option>Transferred Out</option></select></div>
+                    
+                    <div class="p-6 overflow-y-auto flex-1">
+                        <form class="space-y-4">
+                            <div><label class="block text-xs font-medium text-gray-500 mb-1">Full Name</label><input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"></div>
+                            <div class="flex gap-4">
+                                <div class="w-1/2"><label class="block text-xs font-medium text-gray-500 mb-1">Birthday</label><input type="date" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"></div>
+                                <div class="w-1/2"><label class="block text-xs font-medium text-gray-500 mb-1">Sex</label><select class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"><option>Male</option><option>Female</option></select></div>
+                            </div>
+                            <div><label class="block text-xs font-medium text-gray-500 mb-1">Address</label><input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"></div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div><label class="block text-xs font-medium text-gray-500 mb-1">UIC Patient Code</label><input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"></div>
+                                <div><label class="block text-xs font-medium text-gray-500 mb-1">Transfer Status</label><select class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"><option>Active / New</option><option>Transfer In</option><option>Transferred Out</option></select></div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-500 mb-2">Category</label>
+                                <div class="flex flex-wrap gap-2 text-xs">
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full font-medium border border-blue-200 cursor-pointer">MSM</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full cursor-pointer">TGW</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full cursor-pointer">FSW</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full cursor-pointer">PWID</span>
+                                </div>
+                            </div>
+                            <hr class="my-4 border-gray-100">
+                            <label class="block text-xs font-medium text-gray-500 mb-2">Services Offered</label>
+                            <div class="grid grid-cols-2 gap-2 text-xs font-medium">
+                                <button type="button" class="bg-gray-50 border border-gray-200 rounded-lg py-2 hover:bg-gray-100">PrEP Enrollment</button>
+                                <button type="button" class="bg-blue-50 border border-blue-200 text-blue-700 rounded-lg py-2">ART Enrollment</button>
+                                <button type="button" class="bg-gray-50 border border-gray-200 rounded-lg py-2 hover:bg-gray-100">Syphilis Treatment</button>
+                                <button type="button" class="bg-gray-50 border border-gray-200 rounded-lg py-2 hover:bg-gray-100">Gonorrhea Treatment</button>
+                            </div>
+                            <button type="button" class="w-full bg-blue-600 text-white rounded-xl py-3 mt-4 font-semibold hover:bg-blue-700 shadow-md">Enroll Patient & Generate QR</button>
+                        </form>
                     </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500 mb-2">Category</label>
-                        <div class="flex flex-wrap gap-2 text-xs">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full font-medium border border-blue-200 cursor-pointer">MSM</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full cursor-pointer">TGW</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full cursor-pointer">FSW</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full cursor-pointer">PWID</span>
-                        </div>
+                </div>
+
+                <div id="left-inventory-form" class="hidden flex-col h-full">
+                    <div class="h-32 bg-gradient-to-r from-orange-500 to-yellow-400 flex items-center justify-center relative overflow-hidden">
+                        <i class="fa-solid fa-boxes-packing text-white opacity-20 text-7xl absolute -right-2 -bottom-2"></i>
+                        <h2 class="text-2xl font-bold text-white z-10 drop-shadow-md"><i class="fa-solid fa-box-open mr-2"></i>Add New Supply</h2>
                     </div>
-                    <hr class="my-4 border-gray-100">
-                    <label class="block text-xs font-medium text-gray-500 mb-2">Services Offered</label>
-                    <div class="grid grid-cols-2 gap-2 text-xs font-medium">
-                        <button type="button" class="bg-gray-50 border border-gray-200 rounded-lg py-2 hover:bg-gray-100">PrEP Enrollment</button>
-                        <button type="button" class="bg-blue-50 border border-blue-200 text-blue-700 rounded-lg py-2">ART Enrollment</button>
-                        <button type="button" class="bg-gray-50 border border-gray-200 rounded-lg py-2 hover:bg-gray-100">Syphilis Treatment</button>
-                        <button type="button" class="bg-gray-50 border border-gray-200 rounded-lg py-2 hover:bg-gray-100">Gonorrhea Treatment</button>
+                    
+                    <div class="p-6 overflow-y-auto flex-1">
+                        <form class="space-y-4">
+                            <div><label class="block text-xs font-medium text-gray-500 mb-1">Supply / Medicine Name</label><input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"></div>
+                            <div><label class="block text-xs font-medium text-gray-500 mb-1">Brand</label><input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"></div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div><label class="block text-xs font-medium text-gray-500 mb-1">Quantity (pcs/boxes)</label><input type="number" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"></div>
+                                <div><label class="block text-xs font-medium text-gray-500 mb-1">Lot Number</label><input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"></div>
+                            </div>
+                            
+                            <div><label class="block text-xs font-medium text-gray-500 mb-1">Expiry Date</label><input type="date" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 outline-none"></div>
+                            
+                            <hr class="my-4 border-gray-100">
+                            <label class="block text-xs font-medium text-gray-500 mb-2">Barcode / QR Link</label>
+                            <button type="button" class="w-full bg-gray-100 border border-gray-200 rounded-xl py-3 text-gray-600 hover:bg-gray-200 transition font-medium flex items-center justify-center gap-2" onclick="openScanner('inventory')">
+                                <i class="fa-solid fa-camera"></i> Scan Code to Link Item
+                            </button>
+                            
+                            <button type="button" class="w-full bg-orange-600 text-white rounded-xl py-3 mt-4 font-semibold hover:bg-orange-700 shadow-md">Save to Database</button>
+                        </form>
                     </div>
-                    <button type="button" class="w-full bg-blue-600 text-white rounded-xl py-3 mt-4 font-semibold hover:bg-blue-700 shadow-md">Enroll Patient & Generate QR</button>
-                </form>
+                </div>
+
             </div>
 
             <div class="w-full md:w-2/3 flex flex-col gap-4 relative">
                 
-                <div class="bg-white rounded-full apple-shadow px-6 py-3 flex justify-between items-center z-10">
-                    <div class="flex gap-4 font-medium text-sm" id="view-tabs">
-                        <button id="tab-patients" class="text-blue-600 border-b-2 border-blue-600 pb-1" onclick="switchView('patients')">Patients</button>
-                        <button id="tab-inventory" class="text-gray-400 hover:text-gray-600 pb-1" onclick="switchView('inventory')">Inventory</button>
-                    </div>
-                    <select class="bg-gray-50 border border-gray-200 rounded-lg px-3 py-1 text-sm outline-none">
-                        <option>Filter: All</option><option>Near Due</option><option>Overdue</option>
+                <div class="bg-white rounded-full apple-shadow px-6 py-3 flex justify-end items-center z-10">
+                    <select class="bg-gray-50 border border-gray-200 rounded-lg px-3 py-1 text-sm outline-none font-medium text-gray-600 focus:border-blue-400">
+                        <option>Filter List: All</option>
+                        <option>Near Due / Low Stock</option>
+                        <option>Overdue / Out of Stock</option>
                     </select>
                 </div>
 
@@ -160,8 +196,7 @@
                                 
                                 <div class="bg-white p-3 rounded-xl border border-gray-200 text-sm col-span-1 md:col-span-2 lg:col-span-1">
                                     <h5 class="font-bold text-gray-700 mb-2 border-b pb-1 text-xs uppercase tracking-wide flex justify-between">
-                                        <span>Lab Clearances</span>
-                                        <span class="text-[9px] text-gray-400 font-normal">Result & Date</span>
+                                        <span>Lab Clearances</span><span class="text-[9px] text-gray-400 font-normal">Result & Date</span>
                                     </h5>
                                     <div class="space-y-2">
                                         <div class="flex items-center gap-2 text-xs">
@@ -174,6 +209,17 @@
                                             <input type="text" placeholder="Result" class="w-1.5/5 border border-gray-200 rounded px-2 py-1 outline-none focus:border-blue-400">
                                             <input type="date" class="w-1.5/5 border border-gray-200 rounded px-2 py-1 outline-none text-[10px] focus:border-blue-400">
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-xl border border-gray-200 mb-5">
+                                <h5 class="font-bold text-gray-700 mb-3 flex items-center gap-2"><i class="fa-solid fa-clock-rotate-left text-blue-500"></i> Treatment Tracker</h5>
+                                <div class="border-l-2 border-blue-200 ml-2 pl-4 space-y-4">
+                                    <div class="relative">
+                                        <div class="absolute -left-[21px] top-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white"></div>
+                                        <p class="text-xs font-bold text-gray-800">Oct 15, 2023 - Next Due: <span class="text-red-500">Nov 14, 2023</span></p>
+                                        <p class="text-[11px] text-gray-600">Given: 30 pcs Tenofovir (ART) | Dispensed by: Nurse Joy</p>
                                     </div>
                                 </div>
                             </div>
@@ -194,8 +240,8 @@
                 <div id="inventory-view" class="hidden-tab flex-1 overflow-y-auto pb-24">
                     <div class="bg-white rounded-3xl apple-shadow p-6 border border-gray-100">
                         <div class="flex justify-between items-center mb-6">
-                            <h2 class="text-xl font-bold text-gray-900">Inventory Management</h2>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700" onclick="document.getElementById('addSupplyModal').classList.remove('hidden')">+ Add New Supply</button>
+                            <h2 class="text-xl font-bold text-gray-900">Current Stocks</h2>
+                            <p class="text-xs text-gray-500">Use the Left Panel to Add Supply.</p>
                         </div>
                         
                         <table class="w-full text-left text-sm">
@@ -210,7 +256,7 @@
                             </thead>
                             <tbody class="divide-y divide-gray-100">
                                 <tr class="hover:bg-gray-50 transition">
-                                    <td class="py-3 px-4"><div class="w-10 h-10 bg-blue-100 text-blue-500 rounded flex items-center justify-center text-lg">💊</div></td>
+                                    <td class="py-3 px-4"><div class="w-10 h-10 bg-orange-100 text-orange-500 rounded flex items-center justify-center text-lg">💊</div></td>
                                     <td class="py-3 px-4"><p class="font-bold text-gray-800">Tenofovir (TDF)</p><p class="text-xs text-gray-500">Mylan</p></td>
                                     <td class="py-3 px-4"><p class="font-medium">Lot: 99B2</p><p class="text-[10px] text-gray-500">Exp: 12/2027</p></td>
                                     <td class="py-3 px-4"><span class="flex items-center gap-2 font-semibold"><span class="w-2 h-2 rounded-full bg-orange-500"></span> 18 boxes</span></td>
@@ -229,22 +275,52 @@
         </div>
 
         <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 glassmorphism apple-shadow rounded-full px-6 py-3 flex gap-8 items-center z-50">
-            <button onclick="goHome()" class="text-gray-400 hover:text-blue-600 transition flex flex-col items-center gap-1">
+            <button onclick="goHome()" class="text-gray-400 hover:text-gray-800 transition flex flex-col items-center gap-1">
                 <i class="fa-solid fa-house text-lg"></i><span class="text-[10px] font-medium">Home</span>
             </button>
-            <button onclick="openScanner('global')" class="bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center apple-shadow hover:bg-blue-700 transition transform -translate-y-4">
+            <button id="nav-patients" onclick="switchView('patients')" class="text-blue-600 transition flex flex-col items-center gap-1">
+                <i class="fa-solid fa-users text-lg"></i><span class="text-[10px] font-medium">Patients</span>
+            </button>
+            <button onclick="openScanner('global')" class="bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center apple-shadow hover:bg-blue-700 transition transform -translate-y-4 shadow-lg border-4 border-white">
                 <i class="fa-solid fa-qrcode text-2xl"></i>
             </button>
-            <button onclick="switchView('inventory')" class="text-gray-400 hover:text-blue-600 transition flex flex-col items-center gap-1">
+            <button id="nav-inventory" onclick="switchView('inventory')" class="text-gray-400 hover:text-orange-600 transition flex flex-col items-center gap-1">
                 <i class="fa-solid fa-boxes-stacked text-lg"></i><span class="text-[10px] font-medium">Stock</span>
             </button>
         </div>
     </div>
 
     <div id="dispenseDetailsModal" class="hidden fixed inset-0 bg-black/50 z-[70] flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 w-full max-w-sm apple-shadow">
+            <h3 class="text-lg font-bold mb-1 text-gray-800">Medication Scanned!</h3>
+            <p class="text-xs text-gray-500 mb-4 border-b pb-3">Tenofovir (TDF) - Mylan</p>
+            <div class="space-y-3">
+                <div><label class="block text-xs font-medium text-gray-600 mb-1">Given By</label><input type="text" class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm outline-none"></div>
+                <div><label class="block text-xs font-medium text-gray-600 mb-1">Quantity (pcs)</label><input type="number" class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm outline-none"></div>
+            </div>
+            <div class="mt-6 flex justify-end gap-2">
+                <button class="px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 text-sm" onclick="document.getElementById('dispenseDetailsModal').classList.add('hidden')">Cancel</button>
+                <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm" onclick="document.getElementById('dispenseDetailsModal').classList.add('hidden'); alert('Saved!');">Save</button>
+            </div>
         </div>
-    <div id="addSupplyModal" class="hidden fixed inset-0 bg-black/50 z-[70] flex items-center justify-center p-4">
-         </div>
+    </div>
+
+    <div id="addBatchModal" class="hidden fixed inset-0 bg-black/50 z-[70] flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 w-full max-w-sm apple-shadow">
+            <h3 class="text-lg font-bold mb-1 text-gray-800">Add Batch / Restock</h3>
+            <p class="text-xs text-gray-500 mb-4 border-b pb-3">Tenofovir (TDF) - Mylan</p>
+            <div class="space-y-3 text-sm">
+                <div><label class="block text-xs font-medium text-gray-600">New Quantity</label><input type="number" class="w-full border border-gray-200 rounded-lg px-3 py-2 outline-none"></div>
+                <div><label class="block text-xs font-medium text-gray-600">New Lot Number</label><input type="text" class="w-full border border-gray-200 rounded-lg px-3 py-2 outline-none"></div>
+                <div><label class="block text-xs font-medium text-gray-600">New Expiry Date</label><input type="date" class="w-full border border-gray-200 rounded-lg px-3 py-2 outline-none"></div>
+            </div>
+            <div class="mt-6 flex justify-end gap-2">
+                <button class="px-4 py-2 text-gray-500 hover:bg-gray-100 rounded-lg text-sm" onclick="document.getElementById('addBatchModal').classList.add('hidden')">Cancel</button>
+                <button class="px-4 py-2 bg-green-600 text-white rounded-lg text-sm">Save Batch</button>
+            </div>
+        </div>
+    </div>
+
     <div id="qrScannerModal" class="hidden fixed inset-0 bg-black/90 z-[80] flex flex-col items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-4 w-full max-w-sm apple-shadow relative">
             <button onclick="closeScanner()" class="absolute top-4 right-4 text-gray-500 text-xl z-10"><i class="fa-solid fa-xmark"></i></button>
@@ -256,38 +332,41 @@
     <script>
         // --- Navigation Logic for Landing Page vs App Workspace ---
         function enterApp(view) {
-            // Hide Landing Page
             document.getElementById('landing-page').style.display = 'none';
-            // Show Main App
             document.getElementById('main-app').classList.remove('hidden');
             document.getElementById('main-app').classList.add('flex');
-            // Switch to chosen tab
             switchView(view);
         }
 
         function goHome() {
-            // Hide Main App
             document.getElementById('main-app').classList.add('hidden');
             document.getElementById('main-app').classList.remove('flex');
-            // Show Landing Page
             document.getElementById('landing-page').style.display = 'flex';
         }
 
+        // --- Core Module Switching Logic ---
         function switchView(view) {
-            // Views
-            document.getElementById('patients-view').style.display = view === 'patients' ? 'block' : 'none';
-            document.getElementById('inventory-view').style.display = view === 'inventory' ? 'block' : 'none';
+            // 1. Toggle Right Panel Lists
+            document.getElementById('patients-view').classList.toggle('hidden-tab', view !== 'patients');
+            document.getElementById('inventory-view').classList.toggle('hidden-tab', view !== 'inventory');
             
-            // Tab styling update
-            const tabP = document.getElementById('tab-patients');
-            const tabI = document.getElementById('tab-inventory');
+            // 2. Toggle Left Panel Forms
+            document.getElementById('left-patient-form').classList.toggle('hidden', view !== 'patients');
+            document.getElementById('left-patient-form').classList.toggle('flex', view === 'patients');
+            
+            document.getElementById('left-inventory-form').classList.toggle('hidden', view !== 'inventory');
+            document.getElementById('left-inventory-form').classList.toggle('flex', view === 'inventory');
+            
+            // 3. Update Bottom Nav Colors
+            const navP = document.getElementById('nav-patients');
+            const navI = document.getElementById('nav-inventory');
             
             if (view === 'patients') {
-                tabP.className = "text-blue-600 border-b-2 border-blue-600 pb-1";
-                tabI.className = "text-gray-400 hover:text-gray-600 pb-1";
+                navP.className = "text-blue-600 transition flex flex-col items-center gap-1";
+                navI.className = "text-gray-400 hover:text-orange-600 transition flex flex-col items-center gap-1";
             } else {
-                tabI.className = "text-blue-600 border-b-2 border-blue-600 pb-1";
-                tabP.className = "text-gray-400 hover:text-gray-600 pb-1";
+                navI.className = "text-orange-600 transition flex flex-col items-center gap-1";
+                navP.className = "text-gray-400 hover:text-blue-600 transition flex flex-col items-center gap-1";
             }
         }
 
@@ -326,9 +405,7 @@
         function onScanSuccess(decodedText, decodedResult) {
             closeScanner();
             if (currentScanContext === 'dispense') {
-                setTimeout(() => {
-                    document.getElementById('dispenseDetailsModal').classList.remove('hidden');
-                }, 300);
+                setTimeout(() => { document.getElementById('dispenseDetailsModal').classList.remove('hidden'); }, 300);
             } else {
                 alert("Scanned Code: " + decodedText);
             }
