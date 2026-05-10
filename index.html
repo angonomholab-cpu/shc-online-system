@@ -29,6 +29,7 @@
         </div>
 
         <div class="flex flex-col md:flex-row gap-8 w-full max-w-6xl h-[50vh] md:h-[45vh]">
+            
             <button onclick="enterApp('patients')" class="flex-1 glassmorphism bg-white/60 rounded-[40px] apple-shadow flex flex-col items-center justify-center gap-6 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group border-2 border-transparent hover:border-blue-200 overflow-hidden relative">
                 <div class="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent z-0"></div>
                 <div class="w-40 h-40 rounded-[28px] overflow-hidden group-hover:scale-110 transition-all duration-300 apple-shadow z-10 relative">
@@ -43,15 +44,18 @@
 
             <button onclick="enterApp('inventory')" class="flex-1 glassmorphism bg-white/60 rounded-[40px] apple-shadow flex flex-col items-center justify-center gap-6 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group border-2 border-transparent hover:border-orange-200 overflow-hidden relative">
                 <div class="absolute inset-0 bg-gradient-to-b from-orange-50/50 to-transparent z-0"></div>
-                <div class="w-40 h-40 rounded-[28px] overflow-hidden group-hover:scale-110 transition-all duration-300 apple-shadow z-10 relative">
-                    <img src="https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d?auto=format&fit=crop&q=80&w=400&h=400" alt="Stock Inventory" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-orange-500/20 group-hover:bg-orange-500/10 transition"></div>
+                
+                <div class="w-40 h-40 rounded-[28px] bg-gradient-to-br from-orange-400 to-yellow-500 flex items-center justify-center group-hover:scale-110 transition-all duration-300 apple-shadow z-10 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-white/20 backdrop-blur-sm rounded-[28px]"></div>
+                    <i class="fa-solid fa-question text-7xl text-white drop-shadow-lg z-10"></i>
                 </div>
+                
                 <div class="text-center z-10">
                     <h2 class="text-3xl font-bold text-gray-800 mb-2">Stock Inventory</h2>
                     <p class="text-sm text-gray-500 px-8">Monitor medical supplies, add new batches, and automatically track deducted stock quantities.</p>
                 </div>
             </button>
+
         </div>
     </div>
 
